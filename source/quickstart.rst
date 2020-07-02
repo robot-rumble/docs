@@ -79,16 +79,15 @@ Armed with these new tools, we can drastically improve our robot program. Let's 
     def robot(state, unit, debug):
         enemies = state.objs_by_team(state.other_team)
         closest_enemy = min(enemies,
-            key=lambda e: e.coords.distance(unit.coords)
+            key=lambda e: e.coords.distance_to(unit.coords)
         )
-        direction = unit.coords.towards(closest_enemy)
+        direction = unit.coords.direction_to(closest_enemy.coords)
 
-        if unit.coords.distance(closest_enemy) == 1:
+        if unit.coords.distance_to(closest_enemy.coords) == 1:
             # we're right next to them
             return Action.attack(direction)
         else:
             return Action.move(direction)
-
 
 
 Coordinating your army
@@ -116,7 +115,7 @@ A good place to start is with implementing coordination. Although the :func:`rob
             allies = state.objs_by_team(state.our_team)
 
             def total_distance_for_team(enemy):
-                return sum([allies.coords.distance_to(enemy.coords)])
+                return sum([ally.coords.distance_to(enemy.coords) for ally in allies])
 
             enemies = state.objs_by_team(state.other_team)
             closest_enemy_for_team = min(enemies,
@@ -124,9 +123,9 @@ A good place to start is with implementing coordination. Although the :func:`rob
             )
             target = closest_enemy_for_team
 
-        direction = unit.coords.towards(target)
+        direction = unit.coords.direction_to(target.coords)
 
-        if unit.coords.distance(target) == 1:
+        if unit.coords.distance_to(target.coords) == 1:
             # we're right next to them
             return Action.attack(direction)
         else:
@@ -148,7 +147,7 @@ We can improve this code by taking advantage of :func:`init_turn`, which allows 
             allies = state.objs_by_team(state.our_team)
 
             def total_distance_for_team(enemy):
-                return sum([allies.coords.distance_to(enemy.coords)])
+                return sum([ally.coords.distance_to(enemy.coords) for ally in allies])
 
             enemies = state.objs_by_team(state.other_team)
             closest_enemy_for_team = min(enemies,
