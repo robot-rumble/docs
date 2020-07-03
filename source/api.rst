@@ -87,7 +87,7 @@ User-defined functions
     :param State state: The State instance for this battle.
     :param Obj unit: The Obj instance for this specific unit.
     :param debug: A function that accepts a string key and any value and it to the robot-specific debug table.
-    :type debug: function(str, any)
+    :type debug: function(str, str)
     :return: An action, obtained using one of the static methods of the :class:`Action` class.
 
 .. function:: init_turn(state)

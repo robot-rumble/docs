@@ -173,7 +173,7 @@ Logging in RR occurs on two levels.
 1. **Turn-wide info**: Calling the standard ``print``/``console.log`` function will immediately spit out your logs regardless of which robot they came from. You can view them in the bottom-right panel of the webview, or in the terminal output of rumblebot.
 2. **Robot-specific info**: If you need to view information specific to individual units, you have a better option: the :func:`debug` function.
 
-    .. function:: debug(key, value)
+    .. function:: debug(key: str, value: str)
 
         Calling this function with a key value pair will create a robot-specific information table. You can inspect it by selecting robots in the map of the webview.
 
