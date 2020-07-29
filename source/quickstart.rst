@@ -5,13 +5,13 @@ Any robot program is really just a function that *accepts* the state of the game
 
 .. code-block:: python
 
-    def robot(state, unit, debug):
+    def robot(state, unit):
         if state.turn % 2 == 0:
             return Action.move(Direction.East)
         else:
             return Action.attack(Direction.South)
 
-The state of the arena is passed as the first argument, and information about this specific unit is passed as the second. The third argument is a special :func:`debug` function (more on that later).
+The state of the arena is passed as the first argument, and information about this specific unit is passed as the second.
 
 The body of this function must decide this robot's specific move. Recall that you have three options: move, attack, or pass (by returning ``None/null``). In this case, the robot alternates between moving east and attacking south.
 
@@ -76,7 +76,7 @@ Armed with these new tools, we can drastically improve our robot program. Let's 
 
 .. code-block:: python
 
-    def robot(state, unit, debug):
+    def robot(state, unit):
         enemies = state.objs_by_team(state.other_team)
         closest_enemy = min(enemies,
             key=lambda e: e.coords.distance_to(unit.coords)
@@ -99,37 +99,76 @@ Just like in Starcraft, any good RR player needs a combination of *micro* and *m
 
 A good place to start is with implementing coordination. Although the :func:`robot` function runs individually for every robot, you can use the global scope to share information and strategize. Let's improve our program by asking all of our robots to focus on one target:
 
-.. code-block:: python
+.. content-tabs::
 
-    target = None
+    .. tab-container:: tab1
+        :title: Python
 
-    def robot(state, unit, debug):
-        global target
+        .. code-block:: python
 
-        if target:
-            if not state.obj_by_id(target.id):
-                # target has died
-                target = None
+            target = None
 
-        if not target:
-            allies = state.objs_by_team(state.our_team)
+            def robot(state, unit):
+                global target
 
-            def total_distance_for_team(enemy):
-                return sum([ally.coords.distance_to(enemy.coords) for ally in allies])
+                if target:
+                    if not state.obj_by_id(target.id):
+                        # target has died
+                        target = None
 
-            enemies = state.objs_by_team(state.other_team)
-            closest_enemy_for_team = min(enemies,
-                key=total_distance_for_team
-            )
-            target = closest_enemy_for_team
+                if not target:
+                    allies = state.objs_by_team(state.our_team)
 
-        direction = unit.coords.direction_to(target.coords)
+                    def total_distance_for_team(enemy):
+                        return sum([ally.coords.distance_to(enemy.coords) for ally in allies])
 
-        if unit.coords.distance_to(target.coords) == 1:
-            # we're right next to them
-            return Action.attack(direction)
-        else:
-            return Action.move(direction)
+                    enemies = state.objs_by_team(state.other_team)
+                    closest_enemy_for_team = min(enemies,
+                        key=total_distance_for_team
+                    )
+                    target = closest_enemy_for_team
+
+                direction = unit.coords.direction_to(target.coords)
+
+                if unit.coords.distance_to(target.coords) == 1:
+                    # we're right next to them
+                    return Action.attack(direction)
+                else:
+                    return Action.move(direction)
+
+    .. tab-container:: tab2
+        :title: Javascript
+
+        .. code-block:: javascript
+
+            let target = null
+
+            function robot(state, unit) {
+                if (target) {
+                    if (!state.objById(target.id)) {
+                        // target has died
+                        target = null
+                    }
+                } else {
+                    allies = state.objsByTeam(state.ourTeam)
+
+                    const totalDistanceForTeam = (enemy) =>
+                        _.sum(allies.map(ally => ally.coords.distanceTo(enemy.coords)))
+
+                    enemies = state.objsByTeam(state.otherTeam)
+                    closestEnemyForTeam = _.minBy(enemies, totalDistanceForTeam)
+                    target = closestEnemyForTeam
+                }
+
+                direction = unit.coords.directionTo(target.coords)
+
+                if (unit.coords.distanceTo(target.coords) == 1) {
+                    // we're right next to them
+                    return Action.attack(direction)
+                } else {
+                    return Action.move(direction)
+                }
+            }
 
 We can improve this code by taking advantage of :func:`init_turn`, which allows us to separate out the initialization code that needs to be called once every turn:
 
@@ -171,10 +210,6 @@ Debugging your robot
 Logging in RR occurs on two levels.
 
 1. **Turn-wide info**: Calling the standard ``print``/``console.log`` function will immediately spit out your logs regardless of which robot they came from. You can view them in the bottom-right panel of the webview, or in the terminal output of rumblebot.
-2. **Robot-specific info**: If you need to view information specific to individual units, you have a better option: the :func:`debug` function.
-
-    .. function:: debug(key: str, value: str)
-
-        Calling this function with a key value pair will create a robot-specific information table. You can inspect it by selecting robots in the map of the webview.
+2. **Robot-specific info**: If you need to view information specific to individual units, you have a better option: :class:`Debug`. This class is dedicated to giving the programmer easy access to the webapp GUI, which is currently the only way to inspect robot-specific information. :func:`Debug.log` allows you to create a table with custom values, and :func:`Debug.inspect` gives you an easy way to locate a robot in the map. You can access these methods through a global ``debug`` variable.
 
 Errors behave in a somewhat similar way. Initialization-level errors (like syntax errors) are fatal to your program, and so their output is placed in the same place as turn-wide logs. Runtime errors, on the other hand, occur locally to each robot function invocation, so they are placed in a similar space as the robot-specific info.

@@ -19,7 +19,7 @@ In Robot Rumble, you develop robots that fight in one-vs-one arena battles. We c
 
         .. code-block:: python
 
-          def robot(state, unit, debug):
+          def robot(state, unit):
               if state.turn % 2 == 0:
                   return Action.move(Direction.East)
               else:
@@ -30,7 +30,7 @@ In Robot Rumble, you develop robots that fight in one-vs-one arena battles. We c
 
         .. code-block:: javascript
 
-              function robot(state, unit, debug) {
+              function robot(state, unit) {
                 if (state.turn % 2 === 0) {
                   return Action.move(Direction.East)
                 } else {

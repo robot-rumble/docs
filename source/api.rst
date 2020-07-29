@@ -76,18 +76,29 @@ The Standard Library
     .. staticmethod:: move(direction)
     .. staticmethod:: attack(direction)
 
+.. class:: Debug
+
+    A class for debugging through the webapp GUI. Available through the global ``debug`` variable.
+
+    .. method:: log(key: str, val)
+
+        Calling this function with a key value pair will create a robot-specific information table. You can inspect it by selecting robots in the map.
+
+    .. method:: inspect(unit: Obj)
+
+        Highlight a unit in the map. Useful for locating a specific robot (whether ally or enemy).
+
+
 User-defined functions
 ----------------------
 
 
-.. function:: robot(state, unit, debug)
+.. function:: robot(state, unit)
 
     The main robot function. You must define it.
 
     :param State state: The State instance for this battle.
     :param Obj unit: The Obj instance for this specific unit.
-    :param debug: A function that accepts a string key and any value and it to the robot-specific debug table.
-    :type debug: function(str, str)
     :return: An action, obtained using one of the static methods of the :class:`Action` class.
 
 .. function:: init_turn(state)
@@ -113,3 +124,6 @@ Javascript "enums" are implemented using the method proposed by 2ality__. In a n
 
 __ https://2ality.com/2020/01/enum-pattern.html
 
+Lodash__ is available under the global ``_`` variable. Every module is available but "String".
+
+__ https://lodash.com/docs/4.17.15
