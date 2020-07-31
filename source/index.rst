@@ -19,24 +19,24 @@ In Robot Rumble, you develop robots that fight in one-vs-one arena battles. We c
 
         .. code-block:: python
 
-          def robot(state, unit):
-              if state.turn % 2 == 0:
-                  return Action.move(Direction.East)
-              else:
-                  return Action.attack(Direction.South)
+            def robot(state, unit):
+                if state.turn % 2 == 0:
+                    return Action.move(Direction.East)
+                else:
+                    return Action.attack(Direction.South)
 
     .. tab-container:: tab2
         :title: Javascript
 
         .. code-block:: javascript
 
-              function robot(state, unit) {
-                if (state.turn % 2 === 0) {
-                  return Action.move(Direction.East)
-                } else {
-                  return Action.attack(Direction.South)
-                }
+            function robot(state, unit) {
+              if (state.turn % 2 === 0) {
+                return Action.move(Direction.East)
+              } else {
+                return Action.attack(Direction.South)
               }
+            }
 
 
 You write a program for an individual robot, and then, every turn, that program is run for every robot on your team. Global state is allowed, so how you make your robots work together is entirely up to you.
