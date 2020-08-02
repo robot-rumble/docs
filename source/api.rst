@@ -110,20 +110,35 @@ User-defined functions
 
 Python Details
 --------------
-Stdlib source here__.
+ - Stdlib source here__.
 
 __ https://github.com/robot-rumble/logic/blob/master/lang-runners/python/stdlib.py
 
+ - You can ``import`` most of the Python standard library modules.
+
+ - Implemented with the RustPython__ project.
+
+__ https://github.com/RustPython/RustPython
+
 Javascript Details
 ------------------
-Stdlib source here__. Every identifier is in camelCase.
+ - Stdlib source here__. Every identifier is in camelCase.
 
 __ https://github.com/robot-rumble/logic/blob/master/lang-runners/javascript/stdlib.js
 
-Javascript "enums" are implemented using the method proposed by 2ality__. In a nutshell, this method leverages static class members to create a Java-like Enum superclass. In practice, the result should feel no different from the Python enums.
+ - Javascript "enums" are implemented using the method proposed by 2ality__. In a nutshell, this method leverages static class members to create a Java-like Enum superclass. In practice, the result should feel no different from the Python enums.
 
 __ https://2ality.com/2020/01/enum-pattern.html
 
-Lodash__ is available under the global ``_`` variable. Every module is available but "String".
+ - ``console.log`` is the only available ``console` method.
+
+ - You cannot use ``import``/``require``.
+
+ - Lodash__ is available under the global ``_`` variable. Every module is available but ``String``.
 
 __ https://lodash.com/docs/4.17.15
+
+ - Implemented with the QuickJS__ project.
+
+__ https://bellard.org/quickjs/
+
