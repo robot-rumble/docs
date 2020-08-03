@@ -51,7 +51,7 @@ The Standard Library
 
     Root class for all game state.
 
-    .. attribute:: turn_num
+    .. attribute:: turn
     .. attribute:: our_team
     .. attribute:: other_team
 

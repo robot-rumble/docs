@@ -47,7 +47,7 @@ Before any robot is run, its code is combined with one of our standard libraries
 
     This is the root class for all game state. Go here for arena-wide information, like:
 
-    .. attribute:: turn_num
+    .. attribute:: turn
         :noindex:
     .. attribute:: our_team
         :noindex:
