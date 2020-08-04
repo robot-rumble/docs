@@ -12,6 +12,9 @@ The Standard Library
 
         Convert to a coordinate pair like ``(1, 0)`` or ``(0, -1)``
 
+    .. attribute:: rotate_cw
+    .. attribute:: rotate_ccw
+
 .. class:: Coords
 
     .. attribute:: x, y
@@ -88,6 +91,7 @@ The Standard Library
 
         Highlight a unit in the map. Useful for locating a specific robot (whether ally or enemy).
 
+.. data:: MAP_SIZE: int
 
 User-defined functions
 ----------------------
