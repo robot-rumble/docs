@@ -120,6 +120,8 @@ Armed with these new tools, we can drastically improve our robot program. Let's 
 
             function robot(state, unit) {
               enemies = state.objsByTeam(state.otherTeam)
+              // the `_` here is from lodash (https://lodash.com/), a set of nice js functions
+              // it's included by default in RR
               closestEnemy = _.minBy(enemies,
                 e => e.coords.distanceTo(unit.coords)
               )
