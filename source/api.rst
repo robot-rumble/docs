@@ -16,15 +16,15 @@ The Standard Library
 
     .. attribute:: x, y
 
-    .. method:: __init__(x, y)
+    .. method:: __init__(x: int, y: int)
 
-    .. method:: distance_to(other)
-    .. method:: walking_distance_to(other)
-    .. method:: direction_to(other)
+    .. method:: distance_to(other: Coords) -> float
+    .. method:: walking_distance_to(other: Coords) -> int
+    .. method:: direction_to(other: Coords) -> Direction
 
-    .. method:: __add__(other)
-    .. method:: __sub__(other)
-    .. method:: __mul__(other)
+    .. method:: __add__(other: Union[Coords, Direction]) -> Coords
+    .. method:: __sub__(other: Union[Coords, Direction]) -> Coords
+    .. method:: __mul__(other: int) -> Coords
 
         Languages without operator overloading have similarly named functions: ``add``, ``sub``, ``mul``.
 
@@ -55,13 +55,13 @@ The Standard Library
     .. attribute:: our_team
     .. attribute:: other_team
 
-    .. method:: ids_by_team(team)
-    .. method:: objs_by_team(team)
+    .. method:: obj_by_id(id) -> Optional[Obj]
 
-    .. method:: id_by_coords(coords)
-    .. method:: obj_by_coords(coords)
+    .. method:: ids_by_team(team) -> List[str]
+    .. method:: objs_by_team(team) -> List[Obj]
 
-    .. method:: obj_by_id(id)
+    .. method:: id_by_coords(coords) -> Optional[str]
+    .. method:: obj_by_coords(coords) -> Optional[Obj]
 
 .. class:: ActionType(enum)
 
@@ -73,18 +73,18 @@ The Standard Library
 
     .. method:: __init__(type, direction)
 
-    .. staticmethod:: move(direction)
-    .. staticmethod:: attack(direction)
+    .. staticmethod:: move(direction: Direction) -> Action
+    .. staticmethod:: attack(direction: Direction) -> Action
 
 .. class:: Debug
 
     A class for debugging through the webapp GUI. Available through the global ``debug`` variable.
 
-    .. method:: log(key: str, val)
+    .. method:: log(key: str, val: Any) -> None
 
         Calling this function with a key value pair will create a robot-specific information table. You can inspect it by selecting robots in the map.
 
-    .. method:: inspect(unit: Obj)
+    .. method:: inspect(unit: Obj) -> None
 
         Highlight a unit in the map. Useful for locating a specific robot (whether ally or enemy).
 
@@ -93,7 +93,7 @@ User-defined functions
 ----------------------
 
 
-.. function:: robot(state, unit)
+.. function:: robot(state: State, unit: Obj) -> Action
 
     The main robot function. You must define it.
 
@@ -101,12 +101,9 @@ User-defined functions
     :param Obj unit: The Obj instance for this specific unit.
     :return: An action, obtained using one of the static methods of the :class:`Action` class.
 
-.. function:: init_turn(state)
+.. function:: init_turn(state: State) -> None
 
     An optional initialization function called at the beginning of every turn. Use it to initialize global state.
-
-    :param State state: The State instance.
-    :return: Nothing.
 
 Python Details
 --------------
@@ -130,7 +127,7 @@ __ https://github.com/robot-rumble/logic/blob/master/lang-runners/javascript/std
 
 __ https://2ality.com/2020/01/enum-pattern.html
 
- - ``console.log`` is the only available ``console` method.
+ - ``console.log`` is the only available ``console`` method.
 
  - You cannot use ``import``/``require``.
 
