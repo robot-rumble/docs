@@ -49,7 +49,7 @@ Every turn, a robot can either **move** or **attack** in one of four directions.
 
 .. image:: _static/grid.png
 
-Every robot starts out with **5 HP**, and attacks do **1 damage** (even in the case of friendly fire!). If a robot moves into a wall, into another robot, or into the same location as another robot, it will forfeit its turn. There is no collateral damage in this game.
+Every robot starts out with **5 HP**, and attacks do **1 damage**. There is no collateral damage, but there is friendly fire. If more than one robot moves into the same location, priority is given in a clockwise order starting from the North.
 
 If you have more robots in the arena after **100** turns, you win!
 
