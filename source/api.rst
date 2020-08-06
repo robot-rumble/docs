@@ -8,16 +8,23 @@ The Standard Library
 
     .. attribute:: North, South, East, West
     .. attribute:: opposite
+        :type: Direction
     .. attribute:: to_coords
+        :type: Coords
 
         Convert to a coordinate pair like ``(1, 0)`` or ``(0, -1)``
 
     .. attribute:: rotate_cw
+        :type: Direction
     .. attribute:: rotate_ccw
+        :type: Direction
 
 .. class:: Coords
 
-    .. attribute:: x, y
+    .. attribute:: x
+        :type: int
+    .. attribute:: y
+        :type: int
 
     .. method:: __init__(x: int, y: int)
 
@@ -35,6 +42,7 @@ The Standard Library
 
     .. attribute:: Red, Blue
     .. attribute:: opposite
+        :type: Team
 
 .. class:: ObjType(enum)
 
@@ -45,18 +53,28 @@ The Standard Library
     Anything that can exist within a grid tile.
 
     .. attribute:: id
+        :type: str
     .. attribute:: coords
+        :type: Coords
     .. attribute:: obj_type
+        :type: ObjType
     .. attribute:: team
+        :type: Optional[Team]
     .. attribute:: health
+        :type: Optional[int]
+
+        These are null if this object is not a unit.
 
 .. class:: State
 
     Root class for all game state.
 
     .. attribute:: turn
+        :type: int
     .. attribute:: our_team
+        :type: Team
     .. attribute:: other_team
+        :type: Team
 
     .. method:: obj_by_id(id) -> Optional[Obj]
 
@@ -74,7 +92,7 @@ The Standard Library
 
 .. class:: Action
 
-    .. method:: __init__(type, direction)
+    .. method:: __init__(type: ActionType, direction: Direction)
 
     .. staticmethod:: move(direction: Direction) -> Action
     .. staticmethod:: attack(direction: Direction) -> Action
@@ -91,7 +109,8 @@ The Standard Library
 
         Highlight a unit in the map. Useful for locating a specific robot (whether ally or enemy).
 
-.. data:: MAP_SIZE: int
+.. data:: MAP_SIZE
+    :type: int
 
 User-defined functions
 ----------------------
