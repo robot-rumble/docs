@@ -312,7 +312,7 @@ As you can probably tell, there are about a million ways to further improve this
 Publishing your robot
 ---------------------
 
-When you create a robot under your profile, it will initially be saved as a draft. In order for others to see your robot, and for the matchmaker to queue your robot for ranked battles, you need to **publish** it by clicking the link available in the robot editor. You're only allowed to publish new code every 24 hours, so make sure to only do so when your robot is ready to meet the competition.
+When you create a robot under your profile, it will initially be saved as a draft. In order for others to see your robot, and for the matchmaker to queue your robot for ranked battles, you need to **publish** it by clicking the link in the robot editor. Every time your robot is published, the matchmaker will immediately queue it up for 5 battles. After that, it will queue 1 battle every 2 hours.
 
 
 Debugging your robot
