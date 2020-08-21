@@ -136,6 +136,10 @@ __ https://github.com/robot-rumble/logic/blob/master/lang-runners/python/stdlib.
 
  - You can ``import`` most of the Python standard library modules.
 
+ - Install the robot-rumble-stdlib__ package to get autocompletion for your robot. Just put ``from rumblelib import *`` at the top of your file. `example <https://github.com/robot-rumble/lang-support/blob/master/python/typed.py>`_
+
+__ https://pypi.org/project/robot-rumble-stdlib/
+
  - Implemented with the RustPython__ project.
 
 __ https://github.com/RustPython/RustPython
@@ -157,6 +161,10 @@ __ https://2ality.com/2020/01/enum-pattern.html
  - Lodash__ is available under the global ``_`` variable. Every module is available but ``String``.
 
 __ https://lodash.com/docs/4.17.15
+
+ - There isn't yet a package with typescript types on npm, but in the meantime you can use this__ great boilerplate.
+
+__ https://github.com/tylermenezes/robot-rumble-ts-starter/
 
  - Implemented with the QuickJS__ project.
 
