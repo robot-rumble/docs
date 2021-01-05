@@ -312,8 +312,9 @@ As you can probably tell, there are about a million ways to further improve this
 Publishing your robot
 ---------------------
 
-When you create a robot under your profile, it will initially be saved as a draft. In order for others to see your robot, and for the matchmaker to queue your robot for ranked battles, you need to **publish** it by clicking the link in the robot editor. Every time your robot is published, the matchmaker will immediately queue it up for 5 battles. After that, it will queue 1 battle every 2 hours.
+When you create a robot under your profile, it will initially be saved as a draft. In order for others to see your robot, and for the matchmaker to queue your robot for ranked battles, you need to **publish** it to a specific robot board by clicking the appropriate link on the page of the board. A **board** is a collection of robots and all of the battles that have occured between them. Boards can also optionally belong to a **season**, which is a period of fighting that lasts a specific amount of time.
 
+The matchmaker queues battles for your robot both when it is published, and every X hours after that. The specific number of battles and hours depends on the board you are publishing to.
 
 Debugging your robot
 --------------------
