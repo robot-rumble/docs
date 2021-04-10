@@ -142,7 +142,7 @@ If you've ever played Starcraft, you're probably familiar with the terms *micro*
 
 Just like in Starcraft, any good RR player needs a combination of *micro* and *macro* to win. As you just saw, coding *micro* is relatively straightforward, since it comes down to simple logical decisions. But *macro* is much more difficult — it involves long-term planning, creativity, adaptability! And no, you can't cheat by importing a neural network and letting it do the work for you. Coding *macro* is really like coding anything else: you just need good abstraction, and a hell of a lot of patience.
 
-A good place to start is with implementing coordination. Although the :func:`robot` function runs individually for every robot, you can use the global scope to share information and strategize. Let's improve our program by asking all of our robots to focus on one target (and we'll use :func:`Debug.inspect` to highlight that target in the map):
+A good place to start is with implementing coordination. Although the :func:`robot` function runs individually for every robot, you can use the global scope to share information and strategize. Let's improve our program by asking all of our robots to focus on one target (and we'll use :func:`Debug.locate` to highlight that target in the map):
 
 .. content-tabs::
 
@@ -174,7 +174,7 @@ A good place to start is with implementing coordination. Although the :func:`rob
                     target_id = closest_enemy_for_team.id
 
                 target = state.obj_by_id(target_id)
-                debug.inspect(target)
+                Debug.locate(target)
                 direction = unit.coords.direction_to(target.coords)
 
                 if unit.coords.distance_to(target.coords) == 1:
@@ -210,7 +210,7 @@ A good place to start is with implementing coordination. Although the :func:`rob
               }
 
               const target = state.objById(targetId)
-              debug.inspect(target)
+              Debug.locate(target)
 
               direction = unit.coords.directionTo(target.coords)
 
@@ -255,7 +255,7 @@ We can improve this code by taking advantage of :func:`init_turn`, which allows 
 
             def robot(state, unit):
                 target = state.obj_by_id(target_id)
-                debug.inspect(target)
+                Debug.locate(target)
                 direction = unit.coords.direction_to(target.coords)
 
                 if unit.coords.distance_to(target.coords) == 1:
@@ -294,7 +294,7 @@ We can improve this code by taking advantage of :func:`init_turn`, which allows 
 
             function robot(state, unit) {
               const target = state.objById(targetId)
-              debug.inspect(target)
+              Debug.locate(target)
 
               direction = unit.coords.directionTo(target.coords)
 
@@ -309,24 +309,17 @@ We can improve this code by taking advantage of :func:`init_turn`, which allows 
 As you can probably tell, there are about a million ways to further improve this program. The stdlib may seem somewhat minimalist, but it actually contains more than enough tools for you to create arena-wrecking champions. Go create!
 
 
-Publishing your robot
----------------------
-
-When you create a robot under your profile, it will initially be saved as a draft. In order for others to see your robot, and for the matchmaker to queue your robot for ranked battles, you need to **publish** it to a specific robot board by clicking the appropriate link on the page of the board. A **board** is a collection of robots and all of the battles that have occured between them. Boards can also optionally belong to a **season**, which is a period of fighting that lasts a specific amount of time.
-
-The matchmaker queues battles for your robot both when it is published, and every X hours after that. The specific number of battles and hours depends on the board you are publishing to.
-
 Debugging your robot
 --------------------
 
 Logging in RR occurs on two levels.
 
 1. **Turn-wide info**: Calling the standard ``print``/``console.log`` function will immediately spit out your logs regardless of which robot they came from. You can view them in the bottom-right panel of the webview, or in the terminal output of rumblebot.
-2. **Robot-specific info**: If you need to view information specific to individual units, you have a better option: :class:`Debug`. This class is dedicated to giving the programmer easy access to the webapp GUI, which is currently the only way to inspect robot-specific information. :func:`Debug.log` allows you to create a table with custom values, and :func:`Debug.inspect` gives you an easy way to locate a robot in the map. You can access these methods through a global ``debug`` variable.
+2. **Robot-specific info**: If you need to view information specific to individual units, you have a better option: :class:`Debug`. This class is dedicated to giving the programmer easy access to the webapp GUI, which is currently the only way to inspect robot-specific information. :func:`Debug.inspect` allows you to create a table with custom values, and :func:`Debug.locate` gives you an easy way to locate a robot in the map. You can access these methods through a global ``debug`` variable.
 
 Errors behave in a somewhat similar way. Initialization-level errors (like syntax errors) are fatal to your program, and so their output is placed in the same place as turn-wide logs. Runtime errors, on the other hand, occur locally to each robot function invocation, so they are placed in a similar space as the robot-specific info.
 
-Robots identified with :func:`Debug.inspect` have a star:
+Robots identified with :func:`Debug.locate` have a star:
 
 .. image:: _static/inspected-robot.png
 

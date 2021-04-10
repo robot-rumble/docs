@@ -101,11 +101,11 @@ The Standard Library
 
     A class for debugging through the webapp GUI. Available through the global ``debug`` variable.
 
-    .. method:: log(key: str, val: Any) -> None
+    .. method:: inspect(key: str, val: Any) -> None
 
         Calling this function with a key value pair will create a robot-specific information table. You can inspect it by selecting robots in the map.
 
-    .. method:: inspect(unit: Obj) -> None
+    .. method:: locate(unit: Obj) -> None
 
         Highlight a unit in the map. Useful for locating a specific robot (whether ally or enemy).
 
