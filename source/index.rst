@@ -6,6 +6,7 @@ Welcome to the RR docs!
 
     quickstart
     publishing
+    debugging
     api
     rumblebot
     technical-details
@@ -61,6 +62,7 @@ If you have more robots in the arena after **100** turns, you win!
 
  * Jump into the game by :doc:`creating your first robot <quickstart>`
  * Learn more about :doc:`publishing your robot <publishing>`
+ * Discover the tools available for :doc:`debugging your robot <debugging>`
  * Browse the :doc:`API <api>`
  * Learn about using the :doc:`CLI tool <rumblebot>`
  * Geek out over the :doc:`technical details <technical-details>`

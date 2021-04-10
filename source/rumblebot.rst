@@ -1,7 +1,7 @@
 Develop robots locally with rumblebot
 =====================================
 
-Are you in love with your 10GB-large IDE? Are you a vimaholic that is annoyed by the millisecond delay caused by entering code in your browser? Rumblebot is here for you. `Download it here.`__
+Are you in love with your 10GB IDE? Are you a vimaholic that is annoyed by the millisecond delay caused by entering code in your browser? Rumblebot is here for you. `Download it on Github.`__
 
 __ https://github.com/robot-rumble/cli/releases
 
