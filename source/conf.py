@@ -48,3 +48,9 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 
 master_doc = 'index'
+
+rst_prolog = """
+.. |ErrorLimit| replace:: **2**
+.. |Timeout| replace:: **3 minutes**
+.. |ActiveLimit| replace:: **14 days**
+"""

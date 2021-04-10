@@ -335,3 +335,9 @@ Robots that have experienced a runtime error have a warning sign:
 .. image:: _static/errored-robot.png
 
 Note that the star label takes precedence over the warning label, so if an errored robot is identified, then only the star will be shown.
+
+
+Publishing your robot
+---------------------
+
+After you've completed your robot, in order for it to compete, you need to :doc:`publish it <publishing>`!
