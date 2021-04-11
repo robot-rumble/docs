@@ -2,7 +2,7 @@ The technical details
 =====================
 
 .. _Github org: https://github.com/robot-rumble
-.. _Robot Game: https://github.com/RobotGame/rgserver
+.. _Robot Game: https://web.archive.org/web/20170627131121/robotgame.net/
 .. _logic: https://github.com/robot-rumble/logic
 .. _cli: https://github.com/robot-rumble/cli
 .. _backend: https://github.com/robot-rumble/backend
