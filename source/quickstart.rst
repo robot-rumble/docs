@@ -309,7 +309,7 @@ We can improve this code by taking advantage of :func:`init_turn`, which allows 
 As you can probably tell, there are about a million ways to further improve this program. The stdlib may seem somewhat minimalist, but it actually contains more than enough tools for you to create arena-wrecking champions. Go create!
 
 What's next?
-____________
+------------
 
 After you've completed your robot, in order for it to compete, you need to :doc:`publish it <publishing>`!
 
