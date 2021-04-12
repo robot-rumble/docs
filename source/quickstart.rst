@@ -174,7 +174,7 @@ A good place to start is with implementing coordination. Although the :func:`rob
                     target_id = closest_enemy_for_team.id
 
                 target = state.obj_by_id(target_id)
-                Debug.locate(target)
+                debug.locate(target)
                 direction = unit.coords.direction_to(target.coords)
 
                 if unit.coords.distance_to(target.coords) == 1:
@@ -210,7 +210,7 @@ A good place to start is with implementing coordination. Although the :func:`rob
               }
 
               const target = state.objById(targetId)
-              Debug.locate(target)
+              debug.locate(target)
 
               direction = unit.coords.directionTo(target.coords)
 
@@ -255,7 +255,7 @@ We can improve this code by taking advantage of :func:`init_turn`, which allows 
 
             def robot(state, unit):
                 target = state.obj_by_id(target_id)
-                Debug.locate(target)
+                debug.locate(target)
                 direction = unit.coords.direction_to(target.coords)
 
                 if unit.coords.distance_to(target.coords) == 1:
@@ -294,7 +294,7 @@ We can improve this code by taking advantage of :func:`init_turn`, which allows 
 
             function robot(state, unit) {
               const target = state.objById(targetId)
-              Debug.locate(target)
+              debug.locate(target)
 
               direction = unit.coords.directionTo(target.coords)
 
