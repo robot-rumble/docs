@@ -132,7 +132,7 @@ Python Details
 --------------
  - Stdlib source here__.
 
-__ https://github.com/robot-rumble/logic/blob/master/lang-runners/python/stdlib.py
+__ https://github.com/robot-rumble/logic/blob/master/lang-runners/python/stdlib/rumblelib.py
 
  - You can ``import`` most of the Python standard library modules.
 
