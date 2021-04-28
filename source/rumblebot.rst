@@ -24,6 +24,7 @@ __ https://github.com/robot-rumble/cli/releases
 
     Then you can run it with ``./rumblebot``.
 
-**Please note**: Just because your robots live in the filesystem does not mean that you can import external dependencies. Support for third-party packages is on roadmap, but implementing it is a very nuanced challenge. If you really, really need a library, your best bet is to minify it and just include it at the top of your program.
+**Please note**: Just because your robots live in the filesystem does not mean that you can import external dependencies. Support for third-party packages is on the roadmap, but implementing it is a very nuanced challenge. If you really, really need a library, your best bet is to minify it and just include it at the top of your program.
 
 __ https://lifehacker.com/a-command-line-primer-for-beginners-5633909
+
