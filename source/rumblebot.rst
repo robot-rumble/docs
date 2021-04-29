@@ -1,6 +1,8 @@
 Develop robots locally with rumblebot
 =====================================
 
+.. _Wasmer: https://wasmer.io
+
 Are you in love with your 10GB IDE? Are you a vimaholic that is annoyed by the millisecond delay caused by entering code in your browser? Rumblebot is here for you. `Download it on Github.`__
 
 __ https://github.com/robot-rumble/cli/releases
@@ -25,6 +27,8 @@ __ https://github.com/robot-rumble/cli/releases
     Then you can run it with ``./rumblebot``.
 
 **Please note**: Just because your robots live in the filesystem does not mean that you can import external dependencies. Support for third-party packages is on the roadmap, but implementing it is a very nuanced challenge. If you really, really need a library, your best bet is to minify it and just include it at the top of your program.
+
+**Security**: Every robot in a Robot Rumble battle is run within a fully sandboxed Webassembly runtime. In the browser, we use the V8 engine, and on the desktop/server, we use Wasmer_. This means that it is impossible for a robot's code to access any part of your system, aside from a couple modules necessary for reading time and generating entropy.
 
 __ https://lifehacker.com/a-command-line-primer-for-beginners-5633909
 
