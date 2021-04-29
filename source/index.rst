@@ -43,7 +43,7 @@ In Robot Rumble, you develop robots that fight in one-vs-one arena battles. We c
 
 You write a program for an individual robot, and then, every turn, that program is run for every robot on your team. Global state is allowed, so how you make your robots work together is entirely up to you.
 
-Robots fight in a 19x19 circular arena. In the picture below, dark squares are the wall, and green squares are spawn points. Every **10** turns, a batch of up to **5** robots randomly spawns for each team.
+Robots fight in a 19x19 circular arena. In the picture below, dark squares are the wall, and green squares are spawn points. Every **10** turns, any robots still left in the spawn area are removed, and a batch of up to **4** robots randomly spawns for each team.
 
 .. image:: _static/arena.png
 
