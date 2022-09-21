@@ -18,7 +18,7 @@
 
 project = 'Robot Rumble'
 copyright = '2020, Chicode'
-author = 'Anton & Noah'
+author = 'Anton & Noa'
 
 # -- General configuration ---------------------------------------------------
 
