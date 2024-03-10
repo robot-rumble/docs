@@ -13,4 +13,4 @@ Sometimes, your robot may be deactivated, which means that matchmaking is paused
 
 1. **Erroring**: if your robot errors encounters an error that prevents any future execution, like a compile-time error, the match will terminate. If this happens |ErrorLimit| times in a row, your robot will be deactivated. The same rules applies to timing out: if your robot takes more than |Timeout| to execute |ErrorLimit| times in a row, it will be deactivated.
 2. **Inactivity**: if a new version of your robot isn't published for |ActiveLimit|, it will be deactivated.
-
+3. **Manual**: you can choose to manually deactivate your robot if you don't want it to participate in matchmaking.
