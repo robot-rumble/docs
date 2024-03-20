@@ -17,7 +17,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Robot Rumble'
-copyright = '2020, Chicode'
+copyright = '2024, Robot Rumble'
 author = 'Anton & Noa'
 
 # -- General configuration ---------------------------------------------------

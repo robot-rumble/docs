@@ -33,7 +33,7 @@ The state of the arena is passed as the first argument, and information about th
 
 The body of this function must decide this robot's specific move. Recall that you have three options: move, attack, or pass (by returning ``None/null``). In this case, the robot alternates between moving east and attacking south.
 
-During a battle simulation, every turn, this function is run for every one of your robots. After the same is done for the opponent's robots, the RR logic core resolves any movement conflicts, updates the arena state, and the cycle begins over again.
+During a battle simulation, every turn, this function is run for every one of your robots. After the same is done for the opponent's robots, the RR logic core resolves any movement conflicts, updates the arena state, and the cycle begins over again. The two programs are run in sandboxed processes that maintain execution context over the course of the entire battle. This means that you are free to create global variables and use them in your functions as desired!
 
 Reading the state
 -----------------
@@ -140,7 +140,7 @@ Coordinating your army
 
 If you've ever played Starcraft, you're probably familiar with the terms *micro* and *macro*. *Micro* refers to the local decisions of your units, like how to maneuver between enemies and deliver a well-timed attack. *Macro*, on the other hand, refers to your high-level strategy, like when and where to move your armies.
 
-Just like in Starcraft, any good RR player needs a combination of *micro* and *macro* to win. As you just saw, coding *micro* is relatively straightforward, since it comes down to simple logical decisions. But *macro* is much more difficult — it involves long-term planning, creativity, adaptability! And no, you can't cheat by importing a neural network and letting it do the work for you. Coding *macro* is really like coding anything else: you just need good abstraction, and a hell of a lot of patience.
+Just like in Starcraft, any good RR robot needs a combination of *micro* and *macro* to win. As you just saw, coding *micro* is relatively straightforward, since it comes down to simple logical decisions. But *macro* is much more difficult — it involves long-term planning, creativity, adaptability! And no, you can't cheat by importing a neural network and letting it do the work for you. Coding *macro* is really like coding anything else: you just need good abstraction, and a hell of a lot of patience.
 
 A good place to start is with implementing coordination. Although the :func:`robot` function runs individually for every robot, you can use the global scope to share information and strategize. Let's improve our program by asking all of our robots to focus on one target (and we'll use :func:`Debug.locate` to highlight that target in the map):
 
@@ -158,7 +158,7 @@ A good place to start is with implementing coordination. Although the :func:`rob
 
                 if target_id:
                     if not state.obj_by_id(target_id):
-                        # target has died
+                        # target has been defeated
                         target_id = None
 
                 if not target_id:
@@ -193,7 +193,7 @@ A good place to start is with implementing coordination. Although the :func:`rob
             function robot(state, unit) {
               if (targetId) {
                 if (!state.objById(targetId)) {
-                  // target has died
+                  // target has been defeated
                   targetId = null
                 }
               }
@@ -238,7 +238,7 @@ We can improve this code by taking advantage of :func:`init_turn`, which allows 
 
                 if target_id:
                     if not state.obj_by_id(target_id):
-                        # target has died
+                        # target has been defeated
                         target_id = None
 
                 if not target_id:
@@ -275,7 +275,7 @@ We can improve this code by taking advantage of :func:`init_turn`, which allows 
             function initTurn(state) {
               if (targetId) {
                 if (!state.objById(targetId)) {
-                  // target has died
+                  // target has been defeated
                   targetId = null
                 }
               }
