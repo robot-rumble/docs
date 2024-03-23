@@ -28,6 +28,7 @@ The Standard Library
 
     .. method:: __init__(x: int, y: int)
 
+    .. method:: is_spawn() -> bool
     .. method:: distance_to(other: Coords) -> float
     .. method:: walking_distance_to(other: Coords) -> int
     .. method:: direction_to(other: Coords) -> Direction
@@ -111,6 +112,9 @@ The Standard Library
 
 .. data:: MAP_SIZE
     :type: int
+
+.. data:: SPAWN_COORDS
+    :type: List[Coords]
 
 User-defined functions
 ----------------------
