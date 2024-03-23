@@ -12,7 +12,7 @@ Welcome to the RR docs!
     technical-details
 
 
-In Robot Rumble, you develop robots that fight in one-vs-one arena battles. We currently support Python and Javascript, but more languages are planned. A very basic robot program looks like this:
+In Robot Rumble, you develop robots that fight in one-vs-one arena battles. We currently support Python and Javascript. A very basic robot program looks like this:
 
 .. content-tabs::
 
