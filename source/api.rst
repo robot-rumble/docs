@@ -114,7 +114,7 @@ The Standard Library
     :type: int
 
 .. data:: SPAWN_COORDS
-    :type: List[Coords]
+    :type: Set[Coords]
 
 User-defined functions
 ----------------------
