@@ -29,6 +29,10 @@ The Standard Library
     .. method:: __init__(x: int, y: int)
 
     .. method:: is_spawn() -> bool
+    .. method:: is_hill() -> bool
+
+        Only applies to the "king of the hill" gamemode.
+        
     .. method:: distance_to(other: Coords) -> float
     .. method:: walking_distance_to(other: Coords) -> int
     .. method:: direction_to(other: Coords) -> Direction
@@ -115,6 +119,11 @@ The Standard Library
 
 .. data:: SPAWN_COORDS
     :type: Set[Coords]
+
+.. data:: HILL_COORDS
+    :type: Set[Coords]
+
+        Only applies to the "king of the hill" gamemode.
 
 User-defined functions
 ----------------------
